@@ -1,12 +1,13 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+#Persistent
 
-stamina := 103
+stamina := 54
 
 SetTimer, waitCont, 5000
-return
+
 
 waitCont:
 PixelGetColor, c1, 1610, 991
@@ -31,7 +32,7 @@ if (c1=0xe9fbfc and c1=c2 and c1=c3) {
    Sleep, 1500
    MouseClick, left, 1520, 840	; Close
    Sleep, 1000
-   stamina += 54   		; offset stamina growth over the period
+   stamina += 53   		; offset stamina growth over the period
  } else {
    Sleep, 4000
  }
