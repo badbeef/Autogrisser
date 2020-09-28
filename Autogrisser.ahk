@@ -4,7 +4,8 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #Persistent
 
-stamina := 54
+stamina := 50
+InputBox stamina, Stamina, Please Enter the current Stamina
 
 SetTimer, waitCont, 5000
 
@@ -25,14 +26,14 @@ if (c1=0xe9fbfc and c1=c2 and c1=c3) {
  MouseClick, left, 1100, 650	; Confirm Invite
  stamina -= 16
  Sleep, 7000
- if (stamina < 31) { ; Purchase Stamina
+ if (stamina < 32) { ; Purchase Stamina
    MouseClick, left, 1665, 80   ; Add Stamina
    Sleep, 1500
    MouseClick, left, 789, 666	; Confirm
    Sleep, 1500
    MouseClick, left, 1520, 840	; Close
    Sleep, 1000
-   stamina += 53   		; offset stamina growth over the period
+   stamina += 52   		; offset stamina growth over the period
  } else {
    Sleep, 4000
  }
