@@ -5,6 +5,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #Persistent
 
 stamina := 50
+start_time := A_TickCount
 InputBox stamina, Stamina, Please Enter the current Stamina
 
 SetTimer, waitCont, 5000
@@ -26,14 +27,16 @@ if (c1=0xe9fbfc and c1=c2 and c1=c3) {
  MouseClick, left, 1100, 650	; Confirm Invite
  stamina -= 16
  Sleep, 7000
- if (stamina < 32) { ; Purchase Stamina
+; Calculate accumulated stamina
+ stamina_earned := (A_TickCount - start_time) / 1000 / 300
+ if (stamina + stamina_earned < 32) { ; Purchase Stamina
    MouseClick, left, 1665, 80   ; Add Stamina
    Sleep, 1500
    MouseClick, left, 789, 666	; Confirm
    Sleep, 1500
    MouseClick, left, 1520, 840	; Close
    Sleep, 1000
-   stamina += 52   		; offset stamina growth over the period
+   stamina += 50  
  } else {
    Sleep, 4000
  }
