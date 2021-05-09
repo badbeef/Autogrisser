@@ -22,7 +22,7 @@ if (c1=0xe9fbfc and c1=c2 and c1=c3) {
  Sleep, 1400
  Send #{PrintScreen}		; Screenshot
  Sleep, 1000
- MouseClick, left, 1580, 920	; Leave
+ MouseClick, left, 1400, 900	; Leave
  Sleep, 5000
  stamina -= 16
 ; Calculate accumulated stamina
@@ -48,7 +48,7 @@ startNew:
  MouseClick, left, 1250, 850	; Create
  Sleep, 1500
  Loop, 12 {
-  MouseClick, left, 1520, 840 	; Start
+  MouseClick, left, 1520, 960	; Start
   sleep, 5000
   MouseClick, left, 1820, 960 	; Attack
   sleep, 5000
