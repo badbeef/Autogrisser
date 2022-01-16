@@ -47,11 +47,16 @@ startNew:
  Sleep, 1500
  MouseClick, left, 1250, 850	; Create
  Sleep, 1500
- Loop, 12 {
+ Loop, 11 {			; down from 12 in case battle ended really quick
+				; adjust this and sleep number below if needed
   MouseClick, left, 1520, 960	; Start
   sleep, 5000
   MouseClick, left, 1820, 960 	; Attack
   sleep, 5000
  }
- SetTimer, startNew, -600000	; safety net 
+ sleep 15000			; wait until timeout
+ PixelGetColor, c4, 1200, 900
+ if (c4=0xd2e7f2) {		; No one joined
+   SetTimer, startNew, -10
+ }
  return
