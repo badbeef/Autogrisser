@@ -9,7 +9,7 @@ start_time := A_TickCount
 InputBox stamina, Stamina, Please Enter the current Stamina
 
 SetTimer, waitCont, 5000
-;SetTimer, startNew, -2000
+;SetTimer, startNew, -5000	; Uncomment to begin from "Create Team"
 
 waitCont:
 PixelGetColor, c1, 1525, 998
@@ -47,14 +47,16 @@ startNew:
  Sleep, 1500
  MouseClick, left, 1250, 850	; Create
  Sleep, 1500
- Loop, 11 {			; down from 12 in case battle ended really quick
-				; adjust this and sleep number below if needed
+ Loop, 14 {			; 
   MouseClick, left, 1520, 960	; Start
-  sleep, 5000
-  MouseClick, left, 1820, 960 	; Attack
-  sleep, 5000
+  sleep, 8000
+  PixelGetColor, c5, 1820, 940
+  if (c5=0x0b00a8) {		; Check for Attack
+   MouseClick, left, 1820, 940 	; Attack
+   return
+  }
  }
- sleep 15000			; wait until timeout
+ sleep 9999			; wait until timeout
  PixelGetColor, c4, 1200, 900
  if (c4=0xd2e7f2) {		; No one joined
    SetTimer, startNew, -10
